@@ -140,7 +140,6 @@ body{
     position: absolute;
     right: 3rem;
     top: -4.2rem;
-    display: none;
 
     width: 2.5rem;
     height: 2.5rem;
@@ -262,4 +261,18 @@ body{
         border: none;
         box-shadow: 0 0.5rem 0 0 hsl(154, 82%, 38%);
     }
+}
+
+/*-----------modifiers--------------------------*/
+
+.form__error_message--active{
+    display: block;
+}
+
+.form__text_input--error{
+    border: 0.2rem solid var(--red);
+}
+
+.form__text_input--error::placeholder{
+    color: var(--red);
 }
