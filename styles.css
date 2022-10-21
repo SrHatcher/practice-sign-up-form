@@ -22,6 +22,13 @@
     font-weight: 700;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url('./fonts/Poppins-MediumItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
 :root{
     --font: 'Poppins', sans-serif;
 
@@ -41,26 +48,23 @@ body{
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
-
     font-family: var(--font);
     font-size: 1.6rem;
 
     background-color: var(--red);
-    background-image: url('./images/bg-intro-mobile.png');
+    background-image: url('./images/bg-intro-desktop.png');
+    background-position: center;
 }
 
 .main{
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 2.5fr  6fr;
+    grid-template-rows: auto  auto;
     gap: 2vh;
     
     height: auto;
     max-width: 37.5rem;
-}
-.main__title{
-
+    margin: 0vh 1rem;
 }
 .title__h1{
     text-align: center;
@@ -75,20 +79,18 @@ body{
 
     color: white;
 }
-.main__promotion{
-    
-}
+
 .promotion__message{
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 2rem 7rem;
+    padding: 1.5rem 7rem;
     margin-block-start: 0rem;
 
     border-radius: 1.2rem;
     background-color: var(--blue);
-    box-shadow: 0rem 1rem 0rem 0rem rgba(0, 0, 0, 0.205);
+    box-shadow: 0rem 0.8rem 0rem 0rem rgba(0, 0, 0, 0.205);
     text-align: center;
 
     color: white;
@@ -98,27 +100,63 @@ body{
 }
 .main__form{
     margin-block-start: 2.5vh;
-    padding: 2.5rem 2rem;
+    padding: 0.5rem 2.5rem 2.5rem 2.5rem;
 
     border-radius: 1.2rem;
     background-color: white;
+    box-shadow: 0 0.8rem 0 0 rgba(0, 0, 0, 0.205);;
 }
 .form__text_input{
     width: 100%;
     height: 5.5rem;
     padding: 0 2rem;
-    margin-block-end: 1.5vh;
+    margin-block-start: 2vh;
 
     font-weight: 600;
 
+    color: var(--font-color);
     border: solid 0.1rem rgb(196, 196, 196);
     border-radius: 0.5rem;
+    outline: none;
 }
+.form__text_input:focus{
+    border: solid 0.1rem var(--blue);
+}
+
+/*-------------Error Messages--------------*/
+.form__error_message{
+    position: relative;
+    display: none;
+    
+    margin-block-start: 0.2rem;
+    
+    font-style: italic;
+    text-align: right;
+    font-size: 1.1rem;
+    
+    color: var(--red);
+}
+.form__error_icon{
+    position: absolute;
+    right: 3rem;
+    top: -4.2rem;
+    display: none;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background-image: url('./images/icon-error.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*---------------------------------------------*/
+
 .form__button{
     display: block;
 
     width: 100%;
     height: 5.5rem;
+    margin-block-start: 2vh;
 
     font-weight: 600;
 
@@ -127,11 +165,16 @@ body{
     background-color: var(--green);
     border: none;
     box-shadow: 0 0.5rem 0 0 hsl(154, 82%, 38%);
+    transition: all ease-in-out 0.1s;
+    cursor: pointer;
+}
+.form__button:active{
+    transform: scale(0.95);   
 }
 .form__disclaimer{
     display: block;
 
-    margin-block-start: 1.5vh;
+    margin-block-start: 2vh;
     padding: 0 5rem;
 
     font-size: 1.1rem;
@@ -144,4 +187,79 @@ body{
     font-weight: 700;
 
     color: var(--red);
+}
+
+@media screen and (max-height: 740px) {
+    .main{
+        margin: 5vh 1rem;
+    }
+}
+
+@media screen and (min-width: 1230px) {
+    .main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 6rem;
+        
+        height: 80%;
+        max-width: 110rem;
+    }
+
+    .main__title{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+
+    .title__h1{
+        text-align: left;
+        font-size: 4rem;
+
+        padding-inline-end:  10rem;
+    }
+    .title__p{
+        margin-block-start: 2vh;
+    
+        text-align: left;
+    }
+
+    .main__promotion{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+
+        height: 100%;
+    }
+
+    .main__form{
+        margin-block-start: 2.5rem;
+        padding: 1.5rem 4rem 3.5rem 4rem;
+    }
+
+    .form__text_input{
+        margin-block-start: 2rem;
+    }
+
+    .form__disclaimer{
+        margin-block-start: 1.5rem;
+        padding: 0 0rem;
+    }
+
+    /*-------------Error Messages--------------*/
+    .form__error_message{      
+        margin-block-start: 0.4rem;
+    }
+    .form__error_icon{
+        top: -4.3rem;
+    }
+    /*---------------------------------------------*/
+}
+
+@media screen and (hover:hover){
+    .form__button:hover{
+        background-color: hsl(154, 82%, 69%);;
+        border: none;
+        box-shadow: 0 0.5rem 0 0 hsl(154, 82%, 38%);
+    }
 }
