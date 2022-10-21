@@ -37,9 +37,111 @@ html{
 }
 
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
     font-family: var(--font);
     font-size: 1.6rem;
 
     background-color: var(--red);
     background-image: url('./images/bg-intro-mobile.png');
+}
+
+.main{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2.5fr  6fr;
+    gap: 2vh;
+    
+    height: auto;
+    max-width: 37.5rem;
+}
+.main__title{
+
+}
+.title__h1{
+    text-align: center;
+
+    color: white;
+}
+.title__p{
+    margin-block-start: 2vh;
+
+    text-align: center;
+    font-weight: 500;
+
+    color: white;
+}
+.main__promotion{
+    
+}
+.promotion__message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem 7rem;
+    margin-block-start: 0rem;
+
+    border-radius: 1.2rem;
+    background-color: var(--blue);
+    box-shadow: 0rem 1rem 0rem 0rem rgba(0, 0, 0, 0.205);
+    text-align: center;
+
+    color: white;
+}
+.promotion__bold{
+    font-weight: 700;
+}
+.main__form{
+    margin-block-start: 2.5vh;
+    padding: 2.5rem 2rem;
+
+    border-radius: 1.2rem;
+    background-color: white;
+}
+.form__text_input{
+    width: 100%;
+    height: 5.5rem;
+    padding: 0 2rem;
+    margin-block-end: 1.5vh;
+
+    font-weight: 600;
+
+    border: solid 0.1rem rgb(196, 196, 196);
+    border-radius: 0.5rem;
+}
+.form__button{
+    display: block;
+
+    width: 100%;
+    height: 5.5rem;
+
+    font-weight: 600;
+
+    border-radius: 0.7rem;
+    color: white;
+    background-color: var(--green);
+    border: none;
+    box-shadow: 0 0.5rem 0 0 hsl(154, 82%, 38%);
+}
+.form__disclaimer{
+    display: block;
+
+    margin-block-start: 1.5vh;
+    padding: 0 5rem;
+
+    font-size: 1.1rem;
+    text-align: center;
+
+    color: rgb(134, 134, 134);
+}
+.form__link{
+    text-decoration: none;
+    font-weight: 700;
+
+    color: var(--red);
 }
